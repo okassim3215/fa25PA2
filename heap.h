@@ -34,8 +34,18 @@ struct MinHeap {
     int pop(int weightArr[]) {
         // TODO: remove and return smallest index
         // Replace root with last element, then call downheap()
-        return -1; // placeholder
 
+        // This is the edge case checking whether the heap is empty
+        if (size == 0) {
+            cout << "Underflow: Heap is empty." << endl;
+            return -1;
+        }
+
+        int temp = data[0]; // Stores the root in order to return it
+        data[0] = data[size - 1]; // Sets the root to the last heap item
+        size--; // Adjusts the size
+        downheap(0, weightArr); // Calls downheap() so that it restores heap order
+        return temp; // returns the deleted root
     }
 
     void upheap(int pos, int weightArr[]) {
