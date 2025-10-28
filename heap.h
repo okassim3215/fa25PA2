@@ -12,16 +12,30 @@ struct MinHeap {
     int data[64];
     int size;
 
-    MinHeap() { size = 0; }
+    MinHeap() {
+        size = 0;
+    }
 
     void push(int idx, int weightArr[]) {
         // TODO: insert index at end of heap, restore order using upheap()
+
+        // This is the edge case checking whether the heap is full or not
+        if (size >= 64) {
+            cout << "Overflow: Heap is full." << endl;
+            return;
+        }
+
+
+        data[size] = idx;  // Inserts idx as the last item in the heap
+        upheap(size, weightArr); // Call upheap() so that it restores the heap order
+        size++;  // Increment the size of the heap
     }
 
     int pop(int weightArr[]) {
         // TODO: remove and return smallest index
         // Replace root with last element, then call downheap()
         return -1; // placeholder
+
     }
 
     void upheap(int pos, int weightArr[]) {
