@@ -17,7 +17,6 @@ struct MinHeap {
     }
 
     void push(int idx, int weightArr[]) {
-        // TODO: insert index at end of heap, restore order using upheap()
 
         // This is the edge case checking whether the heap is full or not
         if (size >= 64) {
@@ -32,8 +31,6 @@ struct MinHeap {
     }
 
     int pop(int weightArr[]) {
-        // TODO: remove and return smallest index
-        // Replace root with last element, then call downheap()
 
         // This is the edge case checking whether the heap is empty
         if (size == 0) {
@@ -49,7 +46,6 @@ struct MinHeap {
     }
 
     void upheap(int pos, int weightArr[]) {
-        // TODO: swap child upward while smaller than parent
 
         int parent = (pos - 1) / 2; // Finds the parent of pos
 
@@ -68,7 +64,6 @@ struct MinHeap {
     }
 
     void downheap(int pos, int weightArr[]) {
-        // TODO: swap parent downward while larger than any child
 
         while (true) {
             // Initializing the children of current node which is pos
