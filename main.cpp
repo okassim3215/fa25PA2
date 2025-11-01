@@ -116,7 +116,6 @@ int buildEncodingTree(int nextFree) {
     }
     // Returns the index of the root
     return heap.data[0];
-
 }
 
 // Step 4: Use an STL stack to generate codes
@@ -145,8 +144,6 @@ void generateCodes(int root, string codes[]) {
             stack.push({rightArr[node], code + "1"}); // Pushes into stack and appends 1 to it
         }
     }
-
-
 }
 
 // Step 5: Print table and encoded message
