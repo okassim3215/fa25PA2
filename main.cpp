@@ -114,8 +114,9 @@ int buildEncodingTree(int nextFree) {
         heap.push(parent, weightArr); // Pushes the node back into the heap
         nextFree++; // Incrementing nextFree for next node index
     }
-    // Returns the index of the root
-    return heap.data[0];
+    // Returns the index of the root;
+    int root = heap.data[0];
+    return root;
 }
 
 // Step 4: Use an STL stack to generate codes
@@ -132,7 +133,16 @@ void generateCodes(int root, string codes[]) {
         // Checks for leaf node
         if (leftArr[node] == -1 && rightArr[node] == -1) {
             int index = charArr[node] - 'a'; // Converts the characters to index
-            codes[index] = code; // Stores the code that was generated
+
+            // Edge case, check's if there is just one character in input.txt
+            if (code.empty()) {
+                codes[index] = "0";  // Set's 0 as the code for that one character
+            }
+
+            // Use the regular generated code in the other case
+            else {
+                codes[index] = code;
+            }
         }
 
         // Checks if there is a left child
